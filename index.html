@@ -2,797 +2,977 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Abishek Bhat R</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abishek Bhat R — Senior Data Analyst</title>
+  <meta name="description" content="Abishek Bhat R — Senior Data Analyst at Nielsen IQ. Power BI, Python, SQL, machine learning.">
 
-  <!-- Favicons -->
-  <link href="assets/img/icons8-text-color-64.png" rel="icon">
-  <link href="assets/img/A_image.png" rel="apple-touch-icon">
+  <link href="assets/img/icons8-a-50.png" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d1122;
+    --bg-2: #10152a;
+    --panel: #161b34;
+    --panel-2: #1b2140;
+    --line: #2a3157;
+    --text: #e9ecf5;
+    --muted: #8d95b3;
+    --teal: #43e8c8;
+    --amber: #f2a53a;
+    --violet: #8b7cff;
+    --pink: #ff6ea8;
+    --blue: #5aa8ff;
+    --teal-dim: rgba(67,232,200,0.14);
+    --violet-dim: rgba(139,124,255,0.14);
+    --amber-dim: rgba(242,165,58,0.14);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ::selection{background:var(--teal); color:#0a0c10;}
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  /* colorful ambient glow layer (ML/data feel, not flat black) */
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    background:
+      radial-gradient(680px 480px at 8% -5%, rgba(67,232,200,0.16), transparent 60%),
+      radial-gradient(620px 460px at 96% 10%, rgba(139,124,255,0.14), transparent 60%),
+      radial-gradient(700px 520px at 50% 100%, rgba(242,165,58,0.10), transparent 60%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    pointer-events:none;
+    z-index:0;
+  }
+  /* subtle node-grid texture, evokes a network / data graph */
+  body::after{
+    content:'';
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle, rgba(67,232,200,0.35) 1px, transparent 1.4px),
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px, 64px 64px, 64px 64px;
+    background-position: 0 0, 0 0, 0 0;
+    opacity:0.28;
+    pointer-events:none;
+    z-index:0;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 10%, transparent 72%);
+  }
 
-  <!-- =======================================================
-  * Template Name: MyResume
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    backdrop-filter:blur(10px);
+    background:rgba(13,17,34,0.72);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  .brand{font-family:var(--font-mono); font-size:0.95rem; color:var(--text); letter-spacing:0.02em;}
+  .brand span{color:var(--teal);}
+  .navlinks{display:flex; gap:28px; list-style:none;}
+  .navlinks a{
+    font-family:var(--font-mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--muted); position:relative; padding:6px 0; transition:color .25s;
+  }
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--teal);
+    transition:width .3s ease;
+  }
+  .navlinks a:hover{color:var(--text);}
+  .navlinks a:hover::after{width:100%;}
+  .nav-cta{
+    font-family:var(--font-mono); font-size:0.78rem; border:1px solid var(--line); padding:8px 16px;
+    border-radius:4px; color:var(--text); transition:all .25s;
+  }
+  .nav-cta:hover{border-color:var(--teal); color:var(--teal);}
+  .nav-toggle{display:none; background:none; border:0; color:var(--text); font-size:1.4rem;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh; display:flex; align-items:center; position:relative;
+    padding-top:68px;
+  }
+  .hero .wrap{display:grid; grid-template-columns:1.2fr 0.8fr; gap:48px; align-items:center;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:0.8rem; color:var(--teal); letter-spacing:0.12em;
+    text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:20px;
+  }
+  .eyebrow .dot{width:8px; height:8px; border-radius:50%; background:var(--teal); box-shadow:0 0 12px var(--teal); animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .hero h1{
+    font-family:var(--font-display); font-weight:700; font-size:clamp(2.4rem, 5.5vw, 4.2rem);
+    line-height:1.05; letter-spacing:-0.01em; margin-bottom:20px;
+  }
+  .hero h1 .accent{background:linear-gradient(90deg, var(--teal), var(--blue)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero .role-line{
+    font-family:var(--font-mono); font-size:1.05rem; color:var(--muted); margin-bottom:28px; min-height:1.6em;
+  }
+  .hero .role-line .cursor{color:var(--teal); animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .btn{
+    font-family:var(--font-mono); font-size:0.85rem; padding:12px 22px; border-radius:4px;
+    display:inline-flex; align-items:center; gap:8px; transition:all .25s; border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(90deg, var(--teal), var(--blue)); color:#0a0c10; font-weight:600;}
+  .btn-primary:hover{filter:brightness(1.1); transform:translateY(-2px);}
+  .btn-outline{border-color:var(--line); color:var(--text);}
+  .btn-outline:hover{border-color:var(--violet); color:var(--violet); transform:translateY(-2px);}
+  .hero-meta{display:flex; gap:32px; flex-wrap:wrap;}
+  .hero-meta div{font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);}
+  .hero-meta strong{display:block; color:var(--text); font-size:1.3rem; font-family:var(--font-display);}
+
+  /* ---------- professional data-graph profile photo ---------- */
+  .hero-photo-wrap{position:relative; width:min(330px,100%); margin:0 auto; padding:24px;}
+  .hero-photo{
+    width:100%; aspect-ratio:1/1.08; position:relative; overflow:hidden;
+    clip-path:polygon(12% 0, 88% 0, 100% 18%, 94% 82%, 78% 100%, 20% 96%, 0 76%, 5% 20%);
+    background:linear-gradient(145deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);
+    isolation:isolate;
+    box-shadow:0 0 0 1px rgba(67,232,200,.12), 0 18px 50px rgba(0,0,0,.28);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover; object-position:center top; filter:grayscale(8%) contrast(1.04) saturate(1.08);}
+  .hero-photo::before{
+    content:''; position:absolute; inset:8px; z-index:2; pointer-events:none;
+    border:1px solid rgba(67,232,200,.35);
+    clip-path:inherit;
+    box-shadow:inset 0 0 35px rgba(67,232,200,.08);
+  }
+  .hero-photo::after{
+    content:''; position:absolute; inset:-8px; z-index:-1; pointer-events:none;
+    background:linear-gradient(135deg,var(--teal),var(--blue) 48%,var(--violet));
+    clip-path:polygon(12% 0, 88% 0, 100% 18%, 94% 82%, 78% 100%, 20% 96%, 0 76%, 5% 20%);
+    opacity:.72;
+    animation:graphGlow 4s ease-in-out infinite;
+  }
+  @keyframes graphGlow{0%,100%{opacity:.55;filter:brightness(.9)}50%{opacity:.9;filter:brightness(1.15)}}
+
+  /* data nodes and connections around the photo */
+  .hero-graph{position:absolute; inset:0; width:100%; height:100%; z-index:3; pointer-events:none; overflow:visible;}
+  .hero-graph line{stroke:var(--teal); stroke-width:1; opacity:.42; stroke-dasharray:4 5; animation:dataLine 3.5s linear infinite;}
+  .hero-graph circle{fill:var(--bg); stroke:var(--teal); stroke-width:2; animation:dataNode 2.4s ease-in-out infinite;}
+  .hero-graph circle:nth-of-type(2n){stroke:var(--violet); animation-delay:.6s;}
+  .hero-graph circle:nth-of-type(3n){stroke:var(--amber); animation-delay:1.1s;}
+  @keyframes dataLine{to{stroke-dashoffset:-36;}}
+  @keyframes dataNode{0%,100%{r:4;opacity:.65}50%{r:5.5;opacity:1}}
+
+  .hero-data-label{
+    position:absolute; right:-4px; top:18px; z-index:5;
+    font-family:var(--font-mono); font-size:.58rem; letter-spacing:.08em;
+    color:var(--teal); background:rgba(13,17,34,.9); border:1px solid var(--line);
+    padding:6px 8px; border-radius:4px; box-shadow:0 8px 20px rgba(0,0,0,.22);
+  }
+  .hero-tag{
+    position:absolute; bottom:-18px; left:-18px; background:var(--panel-2); border:1px solid var(--line);
+    padding:10px 14px; border-radius:6px; font-family:var(--font-mono); font-size:0.72rem; color:var(--muted);
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-tag .bi{color:var(--teal);}
+
+  .scroll-cue{
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    font-family:var(--font-mono); font-size:0.7rem; color:var(--muted); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+  }
+  .scroll-cue .line{width:1px; height:28px; background:linear-gradient(var(--teal), transparent); animation:down 1.6s infinite;}
+  @keyframes down{0%{opacity:0; transform:scaleY(0); transform-origin:top;} 40%{opacity:1; transform:scaleY(1);} 100%{opacity:0; transform:scaleY(1);}}
+
+  /* ---------- section shell ---------- */
+  section{padding:120px 0; position:relative;}
+  .section-head{margin-bottom:56px; max-width:640px;}
+  .section-head .eyebrow{margin-bottom:12px;}
+  .section-head h2{font-family:var(--font-display); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:700; letter-spacing:-0.01em;}
+  .section-head p{color:var(--muted); margin-top:14px; font-size:1rem;}
+
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- about ---------- */
+  #about{border-top:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.4fr; gap:56px; align-items:start;}
+  .about-photo{border-radius:8px; overflow:hidden; border:1px solid var(--line);}
+  .about-photo img{filter:grayscale(10%) saturate(1.1);}
+  .about-copy p{color:var(--muted); font-size:1.05rem; margin-bottom:24px;}
+  .facts{display:grid; grid-template-columns:1fr 1fr; gap:16px 32px; list-style:none;}
+  .facts li{
+    display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding:10px 0;
+    font-size:0.92rem;
+  }
+  .facts li span:first-child{color:var(--muted); font-family:var(--font-mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em;}
+
+  /* ---------- certifications ---------- */
+  #certs{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .cert-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+  .cert-item{background:var(--panel); padding:28px 24px; transition:background .25s;}
+  .cert-item:hover{background:var(--panel-2);}
+  .cert-item .bi{font-size:1.4rem; color:var(--amber); margin-bottom:14px; display:block;}
+  .cert-item h4{font-family:var(--font-display); font-size:1rem; margin-bottom:8px; line-height:1.3;}
+  .cert-item p{font-size:0.85rem; color:var(--muted); margin-bottom:10px;}
+  .cert-item a{font-family:var(--font-mono); font-size:0.75rem; color:var(--teal); border-bottom:1px solid transparent;}
+  .cert-item a:hover{border-color:var(--teal);}
+
+  /* ---------- skills (redesigned as a colorful tool grid) ---------- */
+  .skill-legend{display:flex; gap:20px; flex-wrap:wrap; margin-bottom:32px;}
+  .skill-legend span{font-family:var(--font-mono); font-size:0.75rem; color:var(--muted); display:flex; align-items:center; gap:8px;}
+  .skill-legend i{width:9px; height:9px; border-radius:50%; display:inline-block;}
+  .tools-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:16px;}
+  .tool-card{
+    border:1px solid var(--line); border-radius:10px; padding:22px 20px; background:var(--panel);
+    transition:transform .3s ease, border-color .3s ease, background .3s ease; position:relative; overflow:hidden;
+  }
+  .tool-card::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent, var(--teal));
+  }
+  .tool-card:hover{transform:translateY(-5px); border-color:var(--accent, var(--teal)); background:var(--panel-2);}
+  .tool-card .bi{font-size:1.5rem; margin-bottom:14px; color:var(--accent, var(--teal));}
+  .tool-card h4{font-family:var(--font-display); font-size:1rem; margin-bottom:4px;}
+  .tool-card .cat{font-family:var(--font-mono); font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px; display:block;}
+  .tool-dots{display:flex; gap:5px;}
+  .tool-dots i{width:9px; height:9px; border-radius:50%; background:var(--line); display:inline-block;}
+  .tool-dots i.filled{background:var(--accent, var(--teal));}
+
+  /* ---------- experience / resume — grouped by company ---------- */
+  #experience{border-top:1px solid var(--line);}
+  .company-block{margin-bottom:60px;}
+  .company-block:last-child{margin-bottom:0;}
+  .company-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:26px; padding-bottom:14px; border-bottom:1px solid var(--line);}
+  .company-head h3{
+    font-family:var(--font-display); font-size:1.7rem; font-weight:700; color:var(--accent, var(--teal));
+  }
+  .company-head .loc{font-family:var(--font-mono); font-size:0.78rem; color:var(--muted);}
+  .company-head .loc .bi{margin-right:4px;}
+
+  .role{position:relative; padding-left:28px; margin-bottom:32px; border-left:2px solid var(--line);}
+  .role:last-child{margin-bottom:0;}
+  .role::before{
+    content:''; position:absolute; left:-7px; top:4px; width:12px; height:12px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent, var(--teal));
+  }
+  .role.current::before{background:var(--accent, var(--teal)); box-shadow:0 0 0 5px var(--teal-dim);}
+  .role-head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:12px;}
+  .role-head h4{font-family:var(--font-display); font-size:1.15rem;}
+  .role-head .date{font-family:var(--font-mono); font-size:0.78rem; color:var(--accent, var(--teal)); white-space:nowrap;}
+  .tl-badge{
+    display:inline-block; font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--amber); border:1px solid var(--amber); border-radius:3px;
+    padding:2px 8px; margin-bottom:8px;
+  }
+  .role ol{list-style:none; counter-reset:role-counter; display:flex; flex-direction:column; gap:10px;}
+  .role ol li{
+    counter-increment:role-counter; font-size:0.92rem; color:#c8cee0; padding-left:30px; position:relative;
+  }
+  .role ol li::before{
+    content:counter(role-counter); position:absolute; left:0; top:0; font-family:var(--font-mono); font-size:0.72rem;
+    color:var(--accent, var(--teal)); border:1px solid var(--accent, var(--teal)); border-radius:4px;
+    width:20px; height:20px; display:flex; align-items:center; justify-content:center;
+  }
+
+  /* education */
+  .edu-card{
+    margin-top:52px; border:1px solid var(--line); border-radius:8px; padding:28px; display:flex;
+    justify-content:space-between; flex-wrap:wrap; gap:16px; background:var(--panel);
+  }
+  .edu-card h4{font-family:var(--font-display); font-size:1.05rem; margin-bottom:6px;}
+  .edu-card p{color:var(--muted); font-size:0.88rem;}
+  .edu-card .cgpa{font-family:var(--font-mono); color:var(--teal); font-size:1.3rem; text-align:right;}
+  .edu-card .cgpa small{display:block; color:var(--muted); font-size:0.7rem; font-weight:400;}
+
+  /* ---------- projects ---------- */
+  #projects{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .proj-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:20px;}
+  .proj-card{
+    border:1px solid var(--line); border-radius:8px; padding:28px; background:var(--panel-2);
+    transition:transform .3s ease, border-color .3s ease; display:flex; flex-direction:column; height:100%;
+    position:relative; overflow:hidden;
+  }
+  .proj-card::before{content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent, var(--teal));}
+  .proj-card:hover{transform:translateY(-6px); border-color:var(--accent, var(--teal));}
+  .proj-card .bi{font-size:1.5rem; color:var(--accent, var(--teal)); margin-bottom:16px;}
+  .proj-card h3{font-family:var(--font-display); font-size:1.1rem; margin-bottom:10px; line-height:1.3;}
+  .proj-card p{font-size:0.87rem; color:var(--muted); flex-grow:1; margin-bottom:18px;}
+  .proj-card .proj-link{font-family:var(--font-mono); font-size:0.75rem; color:var(--accent, var(--teal)); display:inline-flex; align-items:center; gap:6px;}
+  .proj-card .proj-link .bi{font-size:0.85rem; margin:0; transition:transform .25s;}
+  .proj-card:hover .proj-link .bi{transform:translateX(4px);}
+
+  /* ---------- contact ---------- */
+  #contact{text-align:center;}
+  #contact .section-head{margin-left:auto; margin-right:auto; text-align:center;}
+  .contact-links{display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:12px;}
+  .contact-card{
+    border:1px solid var(--line); border-radius:8px; padding:22px 26px; min-width:180px;
+    transition:all .25s; background:var(--panel); position:relative; overflow:hidden;
+  }
+  .contact-card::before{content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent, var(--teal));}
+  .contact-card:hover{border-color:var(--accent, var(--teal)); transform:translateY(-4px);}
+  .contact-card .bi{font-size:1.3rem; color:var(--accent, var(--teal)); margin-bottom:10px; display:block;}
+  .contact-card div{font-family:var(--font-mono); font-size:0.82rem;}
+  .contact-card small{display:block; color:var(--muted); font-size:0.7rem; margin-top:4px;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line); padding:40px 0; text-align:center;}
+  footer p{font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);}
+  footer .social{display:flex; justify-content:center; gap:18px; margin-top:14px;}
+  footer .social a{font-size:1.15rem; color:var(--muted); transition:color .25s;}
+  footer .social a:hover{color:var(--teal);}
+
+  .back-top{
+    position:fixed; bottom:24px; right:24px; width:44px; height:44px; border-radius:50%;
+    background:var(--panel-2); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:all .3s; z-index:90; color:var(--teal);
+  }
+  .back-top.show{opacity:1; pointer-events:auto;}
+  .back-top:hover{border-color:var(--teal);}
+
+  /* ---------- background algorithm canvas ---------- */
+  #bgCanvas{position:fixed; inset:0; z-index:0; opacity:0.55; pointer-events:none;}
+
+  /* ---------- concept marquee ---------- */
+  .marquee{
+    position:relative; z-index:1; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--panel); overflow:hidden; padding:14px 0;
+  }
+  .marquee-track{display:flex; width:max-content; gap:0; animation:scrollLeft 38s linear infinite;}
+  .marquee-track span{
+    font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); white-space:nowrap;
+    padding:0 22px; border-right:1px solid var(--line); display:flex; align-items:center; gap:8px;
+  }
+  .marquee-track span i{width:5px; height:5px; border-radius:50%; display:inline-block;}
+  @keyframes scrollLeft{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ---------- decorative watermark charts ---------- */
+  .chart-watermark{position:absolute; z-index:0; pointer-events:none; opacity:0.16;}
+  .chart-watermark svg{width:100%; height:100%; display:block;}
+  #skills .chart-watermark{top:20px; right:-40px; width:420px; height:260px;}
+  #certs .chart-watermark{bottom:-30px; left:-40px; width:380px; height:230px; opacity:0.12;}
+  #about .chart-watermark{top:-20px; right:-30px; width:360px; height:260px; opacity:0.14;}
+  .bar-fill{transform:scaleY(0); transform-origin:bottom; transition:transform 1s cubic-bezier(.16,1,.3,1);}
+  .reveal.in .bar-fill:nth-of-type(1){transition-delay:.05s;}
+  .reveal.in .bar-fill:nth-of-type(2){transition-delay:.15s;}
+  .reveal.in .bar-fill:nth-of-type(3){transition-delay:.25s;}
+  .reveal.in .bar-fill:nth-of-type(4){transition-delay:.35s;}
+  .reveal.in .bar-fill:nth-of-type(5){transition-delay:.45s;}
+  .reveal.in .bar-fill:nth-of-type(6){transition-delay:.55s;}
+  .reveal.in .bar-fill{transform:scaleY(1);}
+  .reg-line, .box-whisker, .dendro-line{stroke-dasharray:400; stroke-dashoffset:400; transition:stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1);}
+  .reveal.in .reg-line, .reveal.in .box-whisker, .reveal.in .dendro-line{stroke-dashoffset:0;}
+  .reg-dot, .box-el{opacity:0; transform:translateY(6px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in .reg-dot, .reveal.in .box-el{opacity:1; transform:translateY(0);}
+  .reg-dot:nth-of-type(2){transition-delay:.05s;} .reg-dot:nth-of-type(3){transition-delay:.1s;}
+  .reg-dot:nth-of-type(4){transition-delay:.15s;} .reg-dot:nth-of-type(5){transition-delay:.2s;}
+  .reg-dot:nth-of-type(6){transition-delay:.25s;} .reg-dot:nth-of-type(7){transition-delay:.3s;}
+  .reg-dot:nth-of-type(8){transition-delay:.35s;}
+
+  @media (max-width: 860px){
+    .navlinks{position:fixed; top:68px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line);
+      flex-direction:column; padding:20px 24px; gap:18px; transform:translateY(-120%); transition:transform .3s ease;}
+    .navlinks.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-photo-wrap{order:-1; max-width:300px; margin:0 auto 20px; padding:18px;}
+    .about-grid{grid-template-columns:1fr;}
+    section{padding:80px 0;}
+  }
+</style>
 </head>
 
-<body class="index-page">
+<body>
 
-  <header id="header" class="header d-flex flex-column justify-content-center">
+  <canvas id="bgCanvas"></canvas>
 
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
-        <li><a href="#CourseWork" class="nav-link scrollto"><i class="bi bi-check-circle"></i><span>Certification</span></a></li>
-        <li><a href="#skills"><i class="bi bi-star navicon"></i><span>Skills</span></a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Personal Overview</span></a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Projects</span></a></li>
-        <li><a href="assets/Abishek__Resume.pdf" target="_blank" download="Abishek's Resume"><i class="bi bi-download"></i><span>Download Resume</span></a></li>
-        
+  <header>
+    <nav class="wrap">
+      <a href="#hero" class="brand">abishek<span>.</span>bhat</a>
+      <ul class="navlinks" id="navlinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#certs">Certs</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+      <a href="assets/Abishek__Resume.pdf" target="_blank" download="Abishek's Resume" class="nav-cta">Resume ↓</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i class="bi bi-list"></i></button>
     </nav>
-
   </header>
 
-  <main class="main">
+  <main>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
-
-      <img src="assets/img/First_photo.JPG" alt="">
-
-      <div class="container" data-aos="bi-zoom-in">
-        <div class="row justify-content-center">
-          <div class="col-lg-9">
-            <h2>Abishek Bhat R</h2>
-            <p>I'm <span class="typed" data-typed-items="Microsoft Certified: Power BI Data Analyst Associate, a C/C++ Developer, proficient in Python, specializing in Machine Learning, passionate about Deep Learning"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-              <div class="social-links">
-              <!--<a href="#"><i class="bi bi-twitter-x"></i></a>
-              <a href="#"><i class="bi bi-facebo"></i></a>-->
-              <a href="https://github.com/abishek-bhat"><i class="bi bi-github"></i></a>
-              <a href="https://www.linkedin.com/in/abishek31/"><i class="bi bi-linkedin"></i></a>
-            </div>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="wrap">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Available for data & analytics collaborations</div>
+          <h1>Abishek Bhat R —<br>turning raw data into <span class="accent">decisions.</span></h1>
+          <p class="role-line">Senior Data Analyst @ Nielsen IQ<span class="cursor">_</span></p>
+          <div class="hero-actions">
+            <a href="#experience" class="btn btn-primary"><i class="bi bi-arrow-down-right"></i> View experience</a>
+            <a href="#contact" class="btn btn-outline"><i class="bi bi-envelope"></i> Get in touch</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>3+ yrs</strong>data & analytics</div>
+            <div><strong>PL-300</strong>certified</div>
+            <div><strong>6+</strong>ML/BI projects shipped</div>
           </div>
         </div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2 style="color: black;">Insights</h2>
-        <p>An enthusiastic C/C++ developer and Microsoft Certified Power BI Data Analyst Associate, skilled in advanced data solutions. Currently expanding knowledge in machine learning and deep learning to drive innovation and deliver impactful insights.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/professional_photo_abishek.jpg" class="img-fluid" style="border: 5px solid #333; width: 300px; height: 400px; object-fit: cover;" alt="Professional Photo">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo">
+            <img src="assets/img/professional_photo_abishek_.jpg.jpg" alt="Abishek Bhat R">
+            <svg class="hero-graph" viewBox="0 0 360 400" aria-hidden="true">
+              <line x1="18" y1="70" x2="78" y2="28"/><line x1="78" y1="28" x2="150" y2="18"/>
+              <line x1="150" y1="18" x2="235" y2="38"/><line x1="235" y1="38" x2="342" y2="88"/>
+              <line x1="342" y1="88" x2="328" y2="190"/><line x1="328" y1="190" x2="345" y2="300"/>
+              <line x1="345" y1="300" x2="280" y2="365"/><line x1="280" y1="365" x2="195" y2="388"/>
+              <line x1="195" y1="388" x2="85" y2="370"/><line x1="85" y1="370" x2="20" y2="300"/>
+              <circle cx="18" cy="70" r="4"/><circle cx="78" cy="28" r="4"/><circle cx="150" cy="18" r="4"/>
+              <circle cx="235" cy="38" r="4"/><circle cx="342" cy="88" r="4"/><circle cx="328" cy="190" r="4"/>
+              <circle cx="345" cy="300" r="4"/><circle cx="280" cy="365" r="4"/><circle cx="195" cy="388" r="4"/>
+              <circle cx="85" cy="370" r="4"/><circle cx="20" cy="300" r="4"/>
+            </svg>
           </div>
-          <div class="col-lg-8 content">
-            <h1 style="color:blueviolet;"></h1>
-          <!--  <p class="fst-italic py-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>--> 
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor of Engineering</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>abishekbhat31@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Languages:</strong> <span>English, Tamil, Hindi, Gujarathi</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Trichy, Tamil Nadu, India</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>On my radar:</strong> <span>Eager for learning and projects.</span></li>
-                  
-                </ul>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                </ul>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                 <!-- <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>31/03/2002</span></li>-->
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>-->
-                   
-                 <!--<i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>-->
-                  
-                  
-
-                 <!-- <li><i class="bi bi-chevron-right"></i> <strong>Collaborations:</strong> <span>Open for learning and projects in machine learning and deep learning</span></li>-->
-
-                </ul>
-              </div>
-              
-            </div>
-           <!-- <p class="py-3">
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-            </p>-->
-          </div>
+          <div class="hero-data-label">ML / ANALYTICS</div>
+          <div class="hero-tag"><i class="bi bi-geo-alt"></i> Chennai, India</div>
         </div>
-
       </div>
+      <div class="scroll-cue"><span class="line"></span>SCROLL</div>
+    </section>
 
-    </section><!-- /About Section -->
-  
-    
-
-<!-- ======= CourseWork Section ======= -->
-<section id="CourseWork" class="CourseWork">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-title">
-      <h2>Certifications</h2>
-      <p></p>
+    <!-- CONCEPT MARQUEE -->
+    <div class="marquee">
+      <div class="marquee-track" id="marqueeTrack">
+        <span><i style="background:var(--teal);"></i>SELECT * FROM insights</span>
+        <span><i style="background:var(--amber);"></i>GROUP BY region</span>
+        <span><i style="background:var(--violet);"></i>K-MEANS CLUSTERING</span>
+        <span><i style="background:var(--blue);"></i>y = β₀ + β₁x</span>
+        <span><i style="background:var(--pink);"></i>RANDOM FOREST</span>
+        <span><i style="background:var(--teal);"></i>DAX MEASURE</span>
+        <span><i style="background:var(--amber);"></i>PIVOT TABLE</span>
+        <span><i style="background:var(--violet);"></i>p &lt; 0.05</span>
+        <span><i style="background:var(--blue);"></i>STANDARD DEVIATION σ</span>
+        <span><i style="background:var(--pink);"></i>DECISION TREE</span>
+        <span><i style="background:var(--teal);"></i>ETL PIPELINE</span>
+        <span><i style="background:var(--amber);"></i>Z-SCORE</span>
+        <span><i style="background:var(--violet);"></i>TIME SERIES FORECAST</span>
+        <span><i style="background:var(--blue);"></i>GRADIENT DESCENT</span>
+        <span><i style="background:var(--pink);"></i>INNER JOIN</span>
+      </div>
     </div>
 
-    <div class="row">
-      
-
-
-      <div class="col-lg-3 col-md-6">
-        <div class="count-box">
-          <i class="bi bi-award"></i>
-          <h4>Microsoft Certified Data Analyst Associate</h4>
-          <p>Organization - <a href="https://www.girlscript.tech/home">Microsoft</p>
-          <p><a href="https://drive.google.com/file/d/1BspTrQ8bLjI97liu3E9BfL8LWaMnQOGY/view?usp=sharing">See Credential</a></p>
-        </div>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="chart-watermark reveal">
+        <svg viewBox="0 0 300 220" fill="none">
+          <line x1="20" y1="10" x2="20" y2="200" stroke="var(--line)" stroke-width="1"/>
+          <line x1="20" y1="200" x2="290" y2="200" stroke="var(--line)" stroke-width="1"/>
+          <circle class="reg-dot" cx="45" cy="165" r="5" fill="var(--teal)"/>
+          <circle class="reg-dot" cx="75" cy="150" r="5" fill="var(--teal)"/>
+          <circle class="reg-dot" cx="90" cy="120" r="5" fill="var(--violet)"/>
+          <circle class="reg-dot" cx="130" cy="110" r="5" fill="var(--teal)"/>
+          <circle class="reg-dot" cx="160" cy="95" r="5" fill="var(--amber)"/>
+          <circle class="reg-dot" cx="190" cy="70" r="5" fill="var(--teal)"/>
+          <circle class="reg-dot" cx="220" cy="55" r="5" fill="var(--violet)"/>
+          <circle class="reg-dot" cx="255" cy="35" r="5" fill="var(--amber)"/>
+          <line class="reg-line" x1="35" y1="180" x2="270" y2="30" stroke="var(--blue)" stroke-width="2"/>
+        </svg>
       </div>
-
-
-
-      <div class="col-lg-3 col-md-6">
-        <div class="count-box">
-          <i class="bi bi-award"></i>
-          <h4>Post Graduate Program Data Analyst </h4>
-          <p>Organization - <a href="https://imarticus.org/">Imarticus Learnings</p>
-          <p><a href="https://drive.google.com/file/d/13N6tNBYSl6I5s9H3lTZVE7jr6c6n4wbx/view?usp=sharing">See Credential</a></p>
-        </div>
-      </div>
-          
-       <div class="col-lg-3 col-md-6">
-        <div class="count-box">
-          <i class="bi bi-laptop"></i>
-          <h4>Machine Learning Internship</h4>
-          <p>Organization - <a href="https://internship.ineuron.ai/">iNeuron intelligence Pvt Ltd</p>
-          <p><a href="https://drive.google.com/file/d/1witYmCBKPiIweasNIMLx5WIQ37v9qij-/view?usp=sharing">See Credential</a></p>
-        </div>
-      </div>
-
-
-
-      <div class="col-lg-3 col-md-6">
-        <div class="count-box">
-          <i class="bi bi-laptop"></i>
-          <h4>Web Development and Desingning Internship</h4>
-          <p>Organization - <a href="https://www.thesparksfoundationsingapore.org/">The Sparks Foundation</p>
-          <p><a href="https://drive.google.com/file/d/13kgtanvwVpL-llix0j9vTUQ08GdBqYFf/view?usp=sharing">See Credential</a></p>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mt-6 mt-lg-0">
-        <div class="count-box text-center">
-          <i class="bi bi-laptop"></i>
-        <h4>SQL</h4>
-        <p>Organization - <a href="https://www.skillrack.com/">Skill Rack</p>
-        <p><a href="https://drive.google.com/file/d/1n1-dY81rwMeJ5cNx-ID0rSs8DqK-JhaT/view?usp=sharing">See Credential</a></p>
-        </div>
-      </div>
-           
-       
-      
- 
-      
-      
-       <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-        <div class="count-box">
-          <i class="bi bi-trophy"></i>
-        <h4>Best Student Award</h4>
-        <p>Organization - <a href="https://www.ieindia.org/">IEI</p>
-        <p><a href="https://drive.google.com/file/d/1_JUbeIIgh-WrhL_Z1XqTtP7rTaWF_BKM/view?usp=sharing">See Credential</a></p>
-        </div>
-      </div>
-  </div>
-</section><!-- End CourseWork Section -->
-
-
-
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills </h2>
-        <p>Technical Skills</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Power BI</span> <i class="val">85%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="70"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>C++</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="70"></div>
-              </div>
-            </div><!-- End Skills Item -->
-              
-            <div class="progress">
-              <span class="skill"><span>Linux</span> <i class="val">40%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="about-photo reveal">
+            <img src="assets/img/First_photo.JPG" alt="Abishek Bhat R">
           </div>
-          
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Python</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Azure</span> <i class="val">40%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>MySQL</span> <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-            
-
+          <div class="about-copy reveal">
+            <div class="eyebrow">01 / About</div>
+            <h2 style="font-family:var(--font-display); font-size:2rem; margin-bottom:20px;">Analyst by training, engineer by habit.</h2>
+            <p>I'm a Senior Data Analyst at Nielsen IQ, where I build ML-driven analytical pipelines and executive Power BI dashboards that turn multi-dimensional client datasets into decisions. My background spans statistical modeling, SQL pipeline design, and C/C++ systems work — a mix that keeps me equally comfortable in a Jupyter notebook and a production database.</p>
+            <p>Microsoft Certified: Power BI Data Analyst Associate, PL-300 certified, and currently deepening my ML/DL practice while mentoring junior analysts on SQL and dashboarding best practices.</p>
+            <ul class="facts">
+              <li><span>Location</span><span>Chennai, India</span></li>
+              <li><span>Email</span><span>abishekbhat31@gmail.com</span></li>
+              <li><span>Languages</span><span>English, Tamil, Hindi, Gujarati</span></li>
+              <li><span>Focus</span><span>ML, Power BI, SQL</span></li>
+            </ul>
           </div>
-
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Skills Section -->
+    <!-- CERTIFICATIONS -->
+    <section id="certs">
+      <div class="chart-watermark reveal">
+        <svg viewBox="0 0 320 200" fill="none">
+          <line x1="20" y1="190" x2="300" y2="190" stroke="var(--line)" stroke-width="1"/>
+          <g stroke="var(--teal)" stroke-width="2">
+            <line class="box-whisker" x1="70" y1="30" x2="70" y2="150"/>
+            <rect class="box-el" x="45" y="60" width="50" height="55" fill="none" stroke="var(--teal)"/>
+            <line class="box-el" x1="45" y1="85" x2="95" y2="85" stroke="var(--teal)"/>
+          </g>
+          <g stroke="var(--amber)" stroke-width="2">
+            <line class="box-whisker" x1="170" y1="15" x2="170" y2="170"/>
+            <rect class="box-el" x="145" y="50" width="50" height="70" fill="none" stroke="var(--amber)"/>
+            <line class="box-el" x1="145" y1="95" x2="195" y2="95" stroke="var(--amber)"/>
+          </g>
+          <g stroke="var(--violet)" stroke-width="2">
+            <line class="box-whisker" x1="260" y1="45" x2="260" y2="160"/>
+            <rect class="box-el" x="235" y="75" width="50" height="45" fill="none" stroke="var(--violet)"/>
+            <line class="box-el" x1="235" y1="98" x2="285" y2="98" stroke="var(--violet)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">02 / Credentials</div>
+          <h2>Certifications & recognitions</h2>
+        </div>
+        <div class="cert-grid reveal">
+          <div class="cert-item">
+            <i class="bi bi-award"></i>
+            <h4>Microsoft Certified: Power BI Data Analyst Associate (PL-300)</h4>
+            <p>Microsoft</p>
+            <a href="https://drive.google.com/file/d/1BspTrQ8bLjI97liu3E9BfL8LWaMnQOGY/view?usp=sharing" target="_blank">See credential →</a>
+          </div>
+          <div class="cert-item">
+            <i class="bi bi-mortarboard"></i>
+            <h4>Post Graduate Program, Data Analytics</h4>
+            <p>Imarticus Learning</p>
+            <a href="https://drive.google.com/file/d/13N6tNBYSl6I5s9H3lTZVE7jr6c6n4wbx/view?usp=sharing" target="_blank">See credential →</a>
+          </div>
+          <div class="cert-item">
+            <i class="bi bi-cpu"></i>
+            <h4>Machine Learning Internship</h4>
+            <p>iNeuron Intelligence Pvt Ltd</p>
+            <a href="https://drive.google.com/file/d/1witYmCBKPiIweasNIMLx5WIQ37v9qij-/view?usp=sharing" target="_blank">See credential →</a>
+          </div>
+          <div class="cert-item">
+            <i class="bi bi-code-slash"></i>
+            <h4>Web Development & Designing Internship</h4>
+            <p>The Sparks Foundation</p>
+            <a href="https://drive.google.com/file/d/13kgtanvwVpL-llix0j9vTUQ08GdBqYFf/view?usp=sharing" target="_blank">See credential →</a>
+          </div>
+          <div class="cert-item">
+            <i class="bi bi-database"></i>
+            <h4>SQL Certification</h4>
+            <p>Skill Rack</p>
+            <a href="https://drive.google.com/file/d/1n1-dY81rwMeJ5cNx-ID0rSs8DqK-JhaT/view?usp=sharing" target="_blank">See credential →</a>
+          </div>
+          <div class="cert-item">
+            <i class="bi bi-trophy"></i>
+            <h4>Best Student Award</h4>
+            <p>Institution of Engineers (India)</p>
+            <a href="https://drive.google.com/file/d/1_JUbeIIgh-WrhL_Z1XqTtP7rTaWF_BKM/view?usp=sharing" target="_blank">See credential →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- SKILLS: redesigned tool grid -->
+    <section id="skills">
+      <div class="chart-watermark reveal">
+        <svg viewBox="0 0 320 220" fill="none">
+          <line x1="15" y1="200" x2="310" y2="200" stroke="var(--line)" stroke-width="1"/>
+          <rect class="bar-fill" x="30"  y="90"  width="34" height="110" fill="var(--teal)"/>
+          <rect class="bar-fill" x="76"  y="60"  width="34" height="140" fill="var(--teal)"/>
+          <rect class="bar-fill" x="122" y="120" width="34" height="80"  fill="var(--amber)"/>
+          <rect class="bar-fill" x="168" y="40"  width="34" height="160" fill="var(--amber)"/>
+          <rect class="bar-fill" x="214" y="100" width="34" height="100" fill="var(--violet)"/>
+          <rect class="bar-fill" x="260" y="150" width="34" height="50"  fill="var(--violet)"/>
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">03 / Stack</div>
+          <h2>Tools I build with</h2>
+        </div>
+        <div class="skill-legend reveal">
+          <span><i style="background:var(--teal);"></i> BI & Visualization</span>
+          <span><i style="background:var(--amber);"></i> Programming & ML</span>
+          <span><i style="background:var(--violet);"></i> Infra & Tooling</span>
+        </div>
+        <div class="tools-grid reveal">
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>More About Me</h2>
-       <!-- <p>Worked as a C/C++ developer at 63 Moons Technologies for one year, and currently interning as a Data Analyst at Infoc, focusing on data-driven insights and analysis.</p>
-      </div>S End Section Title -->
-      
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Education</h3>
-
-           <!-- <div class="resume-item pb-0">
-              <h4>Abishek Bhat R</h4>
-              <p><em>Worked as a C/C++ developer at 63 Moons Technologies for one year, and currently interning as a Data Analyst at Infoc, focusing on data-driven insights and analysis.</em></p>
-              <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
-              </ul>
-            </div> Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Continuing Education Progamme</h4>
-              <h5>September, 2024 - April, 2025</h5>
-              <p><em>Institution - <a href="https://home.iitd.ac.in/show.php?id=235&in_sections=News">IIT Delhi</a></em></p>
-              <p>Course: Fintech</p>
-              
-            </div><!-- Edn Resume Item --> 
-            <div class="resume-item">
-              <h4>Bachelor's  of Engineering</h4>
-              <h5>April, 2019 - May, 2023</h5>
-              <p><em>School - <a href="https://krct.ac.in/">K. Ramakrishnan College of Technology</a>, Trichy</em></p>
-              <p>Department: Electronics and Communication Engineering</p>
-              
-            </div><!-- Edn Resume Item -->
-
-
-            <div class="resume-item">
-              <h4>All India Senior School Examination</h4>
-              <h5>April, 2017 - April, 2019</h5>
-              <p><em>School - <a href="https://srivageesha.com/">Sri Vageesha Vidhyashram</a>, Trichy</em></p>
-              
-            </div> <!--End Resume Item -->
-
-              
-
-            <div class="resume-item">
-              <h4>All India Secondary School Examination</h4>
-              <h5>June, 2005 - April, 2017</h5>
-              <p><em>School - <a href="https://mgcvschool.ac.in/index.php">Mahatma Gandhi Centenary Vidyalaya</a>, Trichy</em></p>
-              
-            </div><!-- Edn Resume Item -->
-
-            
-            
-
-               
-
+          <div class="tool-card" style="--accent:var(--teal);">
+            <i class="bi bi-bar-chart-fill"></i>
+            <h4>Power BI</h4>
+            <span class="cat">BI & Visualization</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i></div>
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>C++ Trainee</h4>
-              <h5>Feb, 2023 - jan, 2024</h5>
-              <p><em><a href="https://www.63moons.com/">63 Moons Technologies</a>, Mumbai, India </em></p>
-              <!--<ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-              </ul> -->
-            </div> 
+          <div class="tool-card" style="--accent:var(--teal);">
+            <i class="bi bi-pie-chart-fill"></i>
+            <h4>Tableau</h4>
+            <span class="cat">BI & Visualization</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i></div>
+          </div>
 
-            <div class="resume-item">
-              <h4>Data Analyst- Traineeship</h4>
-              <h5>May, 2023 - Nov, 2023</h5>
-              <p><em><a href="https://www.infoc.com/company/">Infoc</a>,Trichy, India</em></p>
-              <ul>
-                <!--<li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-              </ul> -->
-            </div>
-            <div class="resume-item">
-              <h4>Data Processing Analyst</h4>
-              <h5>March, 2025 - Present</h5>
-              <p><em><a href="https://nielseniq.com/global/en/">Nielsen IQ</a>, Chennai, India </em></p>
-              <!--<ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-              </ul> -->
-            </div> 
-            
-            
+          <div class="tool-card" style="--accent:var(--amber);">
+            <i class="bi bi-filetype-py"></i>
+            <h4>Python (ML/DL)</h4>
+            <span class="cat">Programming & ML</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i></div>
+          </div>
 
+          <div class="tool-card" style="--accent:var(--amber);">
+            <i class="bi bi-database-fill-gear"></i>
+            <h4>SQL</h4>
+            <span class="cat">Programming & ML</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i></div>
+          </div>
+
+          <div class="tool-card" style="--accent:var(--amber);">
+            <i class="bi bi-braces"></i>
+            <h4>C / C++</h4>
+            <span class="cat">Programming & ML</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i></div>
+          </div>
+
+          <div class="tool-card" style="--accent:var(--violet);">
+            <i class="bi bi-clouds-fill"></i>
+            <h4>Azure</h4>
+            <span class="cat">Infra & Tooling</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="tool-card" style="--accent:var(--violet);">
+            <i class="bi bi-git"></i>
+            <h4>Git</h4>
+            <span class="cat">Infra & Tooling</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i></div>
+          </div>
+
+          <div class="tool-card" style="--accent:var(--violet);">
+            <i class="bi bi-terminal-fill"></i>
+            <h4>Linux</h4>
+            <span class="cat">Infra & Tooling</span>
+            <div class="tool-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i></div>
           </div>
 
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Resume Section -->
-
-    
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Project Work</h2>
-        </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                </svg>
-                <i class="bi bi-people"></i>
-              </div>
-              <a href="https://github.com/abishek-bhat/Customer-segmentation-using-Unsupervised-Learning" class="stretched-link">
-                <h3>Customer Segmentation</h3>
-              </a>
-              <p>Developed a customer segmentation model using unsupervised learning techniques to cluster customers based on age and spending score. The analysis provided valuable insights into customer behavior and targeted marketing strategies.</p>
-              </p>
-             </p><p><br><a href="https://github.com/abishek-bhat/Customer-segmentation-using-Unsupervised-Learning" target="_blank">Check Project</a></p>
-          </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
-                </svg>
-                <i class="bi bi-mortarboard"></i>
-              </div>
-              <a href="https://github.com/abishek-bhat/Campus_Placement_Prediction" class="stretched-link">
-                <h3>Campus Placement Prediction</h3>
-              </a>
-              <p>Developed a campus placement prediction model by analyzing historical data, including marks and percentages, to forecast student placement likelihood based on past trends. The model provided insights into placement probabilities and helped refine recruitment strategies.</p>
-              </p><p><br><a href="https://github.com/abishek-bhat/Campus_Placement_Prediction" target="_blank">Check Project</a></p>
-
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
-                </svg>
-                <i class="bi bi-truck"></i>
-              </div>
-              <a href="https://github.com/abishek-bhat/Volvo_business_case" class="stretched-link">
-                <h3>Volvo Business Case</h3>
-              </a>
-              <p>This project involves designing a database structure to manage Volvo Construction Equipment's order and delivery processes, including key data such as factories, machines, and customer orders. By populating the database with sample transactions, the project enables analysis of delivery performance through visualizations, which provide insights into average delivery times, machine-specific metrics, and order deviations. This helps in understanding and optimizing delivery precision and operational efficiency.</p>
-              </p><p><br><a href=https://github.com/abishek-bhat/Volvo_business_case target="_blank">Check Project</a></p>
-
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"></path>
-                </svg>
-                <i class="bi bi-plug"></i>
-              </div>
-              <a href="https://github.com/abishek-bhat/ELECTRICITY-BILL" class="stretched-link">
-                <h3>Electric City Bill Generator using C/C++</h3>
-              </a>
-              <p>The Electricity Bill project aims to streamline the management of electricity billing by allowing users to create, search, modify, and delete service numbers, with functionalities to print bills and manage consumer details. Consumers can input their personal information to generate a service number, view or update their records, and delete entries as needed.</p>
-            </p><p><br><a href=https://github.com/abishek-bhat/ELECTRICITY-BILL target="_blank">Check Project</a></p>
-              <a href="https://github.com/abishek-bhat/ELECTRICITY-BILL" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
-                </svg>
-                <i class="bi bi-shield"></i>
-
-              </div>
-              <a href="https://github.com/abishek-bhat/Mask_Person_Social_distancing_detection" class="stretched-link">
-                <h3>Mask and Social distancing detection </h3>
-              </a>
-              <p>Developed a deep learning model in Python for real-time detection of mask-wearing and social distancing. The system uses live video feeds to identify whether individuals are adhering to mask-wearing protocols and maintaining appropriate social distance.</p>
-            </p><p><br><a href=ttps://github.com/abishek-bhat/Mask_Person_Social_distancing_detection target="_blank">Check Project</a></p>
-              <a href="https://github.com/abishek-bhat/Mask_Person_Social_distancing_detection" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762"></path>
-                </svg>
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <a href="https://github.com/abishek-bhat/Reverse-Engineering-of-an-Advertisement" class="stretched-link">
-                <h3>Reverse Engineering of a Advertisement</h3>
-              </a>
-              <p>Data of pulsar bike has been chosen where the sales among 2 different age group in different period of time is taken and shown whether there is any change in sales of bike after the advertisement and many related films to the pulsar bike.</p>
-              <a href="https://github.com/abishek-bhat/Reverse-Engineering-of-an-Advertisement" class="stretched-link"></a>
-            </p><p><br><a href=https://github.com/abishek-bhat/Reverse-Engineering-of-an-Advertisemen target="_blank">Check Project</a></p>
-            </div>
-          </div><!-- End Service Item -->
-          
-        </div>
-        
-      </div>
-
-    </section><!-- /Services Section -->
-
-    
-
-    <!-- Testimonials Section 
-    <section id="testimonials" class="testimonials section">
-
-      
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>End testimonial item 
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-2.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-
-
-          </div>
-          <div class="swiper-pagination"></div>
+    <!-- EXPERIENCE: grouped by company -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">04 / Career</div>
+          <h2>Experience & education</h2>
         </div>
 
-      </div>
+        <div class="reveal">
 
-    </section>/Testimonials Section -->
+          <!-- NIQ -->
+          <div class="company-block" style="--accent:var(--teal);">
+            <div class="company-head">
+              <h3><a href="https://nielseniq.com/global/en/" target="_blank" style="color:inherit;">Nielsen IQ</a></h3>
+              <span class="loc"><i class="bi bi-geo-alt"></i>Chennai, India</span>
+            </div>
 
-    <!-- Contact Section 
-    <section id="contact" class="contact section">
+            <div class="role current">
+              <span class="tl-badge">Current</span>
+              <div class="role-head"><h4>Senior Data Analyst</h4><span class="date">Aug 2026 — Present</span></div>
+              <ol>
+                <li>Lead the application of statistical and ML techniques (regression, clustering, time-series forecasting) to build predictive models across large, multi-dimensional client datasets.</li>
+                <li>Design and productionize ML-driven analytical pipelines in Python (Pandas, NumPy, scikit-learn) and SQL, improving forecasting accuracy and cutting manual analysis time.</li>
+                <li>Own end-to-end delivery of executive-facing Power BI dashboards, translating complex ML output into clear KPIs.</li>
+                <li>Mentor junior analysts on SQL optimization and dashboard development, raising team-wide reporting quality.</li>
+                <li>Act as lead consultant on client engagements, converting ML findings into strategic business recommendations.</li>
+              </ol>
+            </div>
 
-      <!-- Section Title 
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div> End Section Title 
-
-      <div class="container" data-aos="fade" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-            </div> End Info Item 
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div>End Info Item 
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
-              </div>
-            </divEnd Info Item 
-
+            <div class="role">
+              <div class="role-head"><h4>Data Analyst</h4><span class="date">Mar 2025 — Jul 2026</span></div>
+              <ol>
+                <li>Analyzed multi-dimensional datasets (store, area, market, population) and translated ambiguous client requirements into structured analytical frameworks.</li>
+                <li>Designed and optimized data pipelines using SQL and Python to enable scalable analytics and pattern discovery.</li>
+                <li>Developed executive dashboards and BI solutions in Power BI to monitor KPIs and support decision-making.</li>
+                <li>Collaborated with clients as a consultant, turning findings into practical operational recommendations.</li>
+              </ol>
+            </div>
           </div>
 
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
+          <!-- Infoc -->
+          <div class="company-block" style="--accent:var(--violet);">
+            <div class="company-head">
+              <h3><a href="https://www.infoc.com/company/" target="_blank" style="color:inherit;">Infoc</a></h3>
+              <span class="loc"><i class="bi bi-geo-alt"></i>Trichy, India</span>
+            </div>
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
+            <div class="role">
+              <div class="role-head"><h4>Data Analyst — Trainee</h4><span class="date">May 2024 — Nov 2024</span></div>
+              <ol>
+                <li>Developed Power BI reports and visualizations using DAX for descriptive, predictive, and prescriptive analytics.</li>
+                <li>Collaborated with cross-functional teams to improve reporting and BI decision-making processes.</li>
+              </ol>
+            </div>
+          </div>
 
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
+          <!-- 63 Moons -->
+          <div class="company-block" style="--accent:var(--amber);">
+            <div class="company-head">
+              <h3><a href="https://www.63moons.com/" target="_blank" style="color:inherit;">63 Moons Technologies</a></h3>
+              <span class="loc"><i class="bi bi-geo-alt"></i>Mumbai, India</span>
+            </div>
 
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </divEnd Contact Form 
+            <div class="role">
+              <div class="role-head"><h4>C / C++ Trainee</h4><span class="date">Feb 2023 — Jan 2024</span></div>
+              <ol>
+                <li>Collaborated with interdisciplinary teams of developers and testers to deliver software solutions for financial-sector clients.</li>
+                <li>Diagnosed and resolved user-reported issues, implementing enhancements for a seamless user experience.</li>
+              </ol>
+            </div>
+          </div>
 
         </div>
 
+        <div class="edu-card reveal">
+          <div>
+            <h4>K. Ramakrishnan College of Technology, Trichy</h4>
+            <p>Bachelor of Engineering — Electronics and Communication Engineering · 2019 – 2023</p>
+          </div>
+          <div class="cgpa">7.89<small>CGPA</small></div>
+        </div>
       </div>
+    </section>
 
-    </section /Contact Section 
-  -->
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">05 / Work</div>
+          <h2>Selected projects</h2>
+          <p>Applied ML and data-engineering work, from customer analytics to real-time computer vision.</p>
+        </div>
+        <div class="proj-grid reveal">
+
+          <div class="proj-card" style="--accent:var(--teal);">
+            <i class="bi bi-people"></i>
+            <h3>Customer Segmentation</h3>
+            <p>Unsupervised learning model clustering customers by age and spending score to surface behavioral insight and targeted marketing strategy.</p>
+            <a class="proj-link" href="https://github.com/abishek-bhat/Customer-segmentation-using-Unsupervised-Learning" target="_blank">View on GitHub <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="proj-card" style="--accent:var(--amber);">
+            <i class="bi bi-mortarboard"></i>
+            <h3>Campus Placement Prediction</h3>
+            <p>Predictive model forecasting student placement likelihood from historical academic data, refining recruitment strategy.</p>
+            <a class="proj-link" href="https://github.com/abishek-bhat/Campus_Placement_Prediction" target="_blank">View on GitHub <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="proj-card" style="--accent:var(--violet);">
+            <i class="bi bi-truck"></i>
+            <h3>Volvo Business Case</h3>
+            <p>Database design for Volvo Construction Equipment's order/delivery process, with visualizations analyzing delivery precision and operational efficiency.</p>
+            <a class="proj-link" href="https://github.com/abishek-bhat/Volvo_business_case" target="_blank">View on GitHub <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="proj-card" style="--accent:var(--blue);">
+            <i class="bi bi-plug"></i>
+            <h3>Electricity Bill Generator</h3>
+            <p>C/C++ system to create, search, modify, and delete consumer service records, with bill printing and record management.</p>
+            <a class="proj-link" href="https://github.com/abishek-bhat/ELECTRICITY-BILL" target="_blank">View on GitHub <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="proj-card" style="--accent:var(--pink);">
+            <i class="bi bi-shield-check"></i>
+            <h3>Mask & Social-Distancing Detection</h3>
+            <p>Real-time deep learning system for live video feeds, detecting mask compliance and social-distancing adherence.</p>
+            <a class="proj-link" href="https://github.com/abishek-bhat/Mask_Person_Social_distancing_detection" target="_blank">View on GitHub <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="proj-card" style="--accent:var(--teal);">
+            <i class="bi bi-broadcast"></i>
+            <h3>Reverse-Engineering an Advertisement</h3>
+            <p>Sales analysis across age groups and time periods to measure the impact of an advertising campaign on product sales.</p>
+            <a class="proj-link" href="https://github.com/abishek-bhat/Reverse-Engineering-of-an-Advertisement" target="_blank">View on GitHub <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">06 / Contact</div>
+          <h2>Let's talk data.</h2>
+          <p>Open to conversations on analytics, ML, and BI collaborations.</p>
+        </div>
+        <div class="contact-links reveal">
+          <a class="contact-card" href="mailto:abishekbhat31@gmail.com" style="--accent:var(--teal);"><i class="bi bi-envelope"></i><div>Email<small>abishekbhat31@gmail.com</small></div></a>
+          <a class="contact-card" href="https://www.linkedin.com/in/abishek31/" target="_blank" style="--accent:var(--blue);"><i class="bi bi-linkedin"></i><div>LinkedIn<small>/in/abishek31</small></div></a>
+          <a class="contact-card" href="https://github.com/abishek-bhat" target="_blank" style="--accent:var(--violet);"><i class="bi bi-github"></i><div>GitHub<small>/abishek-bhat</small></div></a>
+          <a class="contact-card" href="assets/Abishek__Resume.pdf" target="_blank" download style="--accent:var(--amber);"><i class="bi bi-file-earmark-arrow-down"></i><div>Resume<small>Download PDF</small></div></a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <h3 class="sitename">Abishek Bhat R</h3>
-      <p>Innovating Data Insights with Precision and Passion!!</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href="https://github.com/abishek-bhat"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/abishek31/"><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          <!--<span>Copyright</span> <strong class="px-1 sitename">Alex Smith</strong> <span>All Rights Reserved</span>-->
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a>Abishek Bhat R</a>
-        </div>
+  <footer>
+    <div class="wrap">
+      <p>ABISHEK BHAT R — Innovating data insights with precision and passion.</p>
+      <div class="social">
+        <a href="https://github.com/abishek-bhat" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/abishek31/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:abishekbhat31@gmail.com"><i class="bi bi-envelope"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#hero" class="back-top" id="backTop"><i class="bi bi-arrow-up"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navlinks = document.getElementById('navlinks');
+  navToggle.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  // back to top button
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('show', window.scrollY > 500);
+  });
+
+  // typed role line
+  const roles = [
+    "Senior Data Analyst @ Nielsen IQ",
+    "Power BI Data Analyst Associate (PL-300)",
+    "Python · SQL · Machine Learning"
+  ];
+  const roleEl = document.querySelector('.role-line');
+  let ri = 0, ci = 0, deleting = false;
+  function typeLoop(){
+    const current = roles[ri];
+    if (!deleting){
+      ci++;
+      if (ci > current.length){ deleting = true; setTimeout(typeLoop, 1400); return; }
+    } else {
+      ci--;
+      if (ci < 0){ deleting = false; ri = (ri+1) % roles.length; ci = 0; }
+    }
+    roleEl.innerHTML = current.slice(0, ci) + '<span class="cursor">_</span>';
+    setTimeout(typeLoop, deleting ? 35 : 55);
+  }
+  setTimeout(typeLoop, 600);
+
+  // --- live background: a small k-means-style clustering algorithm, running forever ---
+  (function(){
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H;
+    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const palette = ['#43e8c8', '#f2a53a', '#8b7cff', '#5aa8ff'];
+    const K = 4;
+    const N = 46;
+    let t = 0;
+
+    const centroids = Array.from({length:K}, (_,i)=>({
+      baseX: Math.random()*W, baseY: Math.random()*H,
+      x:0, y:0, phase: Math.random()*Math.PI*2, speed: 0.15 + Math.random()*0.15
+    }));
+    const points = Array.from({length:N}, ()=>({
+      x: Math.random()*W, y: Math.random()*H, vx:0, vy:0, cluster:0
+    }));
+
+    function step(){
+      t += 0.006;
+      // drift centroids slowly across the viewport, forever
+      centroids.forEach((c,i)=>{
+        c.x = c.baseX + Math.sin(t*c.speed + c.phase) * (W*0.18);
+        c.y = c.baseY + Math.cos(t*c.speed*0.8 + c.phase) * (H*0.18);
+        c.x = ((c.x % W) + W) % W;
+        c.y = ((c.y % H) + H) % H;
+      });
+      // assign + nudge points toward their nearest centroid (mini k-means step)
+      points.forEach(p=>{
+        let best=0, bestD=Infinity;
+        centroids.forEach((c,i)=>{
+          const d = (p.x-c.x)**2 + (p.y-c.y)**2;
+          if(d<bestD){bestD=d; best=i;}
+        });
+        p.cluster = best;
+        const c = centroids[best];
+        p.vx += (c.x - p.x) * 0.0006 + (Math.random()-0.5)*0.12;
+        p.vy += (c.y - p.y) * 0.0006 + (Math.random()-0.5)*0.12;
+        p.vx *= 0.94; p.vy *= 0.94;
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0)p.x+=W; if(p.x>W)p.x-=W; if(p.y<0)p.y+=H; if(p.y>H)p.y-=H;
+      });
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      // connective lines between nearby points of the same cluster (dendrogram-ish network)
+      ctx.lineWidth = 1;
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          const a=points[i], b=points[j];
+          if(a.cluster!==b.cluster) continue;
+          const d = Math.hypot(a.x-b.x, a.y-b.y);
+          if(d<120){
+            ctx.strokeStyle = palette[a.cluster];
+            ctx.globalAlpha = (1 - d/120) * 0.22;
+            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+      // points
+      points.forEach(p=>{
+        ctx.fillStyle = palette[p.cluster];
+        ctx.globalAlpha = 0.55;
+        ctx.beginPath(); ctx.arc(p.x,p.y,2.2,0,Math.PI*2); ctx.fill();
+      });
+      // centroids as small crosshairs
+      ctx.globalAlpha = 0.45;
+      centroids.forEach((c,i)=>{
+        ctx.strokeStyle = palette[i];
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(c.x-7,c.y); ctx.lineTo(c.x+7,c.y);
+        ctx.moveTo(c.x,c.y-7); ctx.lineTo(c.x,c.y+7);
+        ctx.stroke();
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    function loop(){
+      step(); draw();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+</script>
 
 </body>
-
 </html>
